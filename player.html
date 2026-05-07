@@ -3,7 +3,7 @@
   <script type="text/javascript">
     const feed = "https://www.utter-radio.co.uk/blogs/secrets/rss",
       marquee = document.getElementById("bannerMarquee");
-    async function (feed, marquee) {
+    async function fillMarquee (feed, marquee) {
       try {
         const response = await fetch(feed),
           data = await respone.text(),
@@ -11,6 +11,11 @@
           xmlDoc = parser.parseFromString(data, "application/xml"),
           content = xmlDoc.querySelector("content:encoded");
         marquee.innerHTML = content;
+      } catch (e) {
+        console.warn(e);
+      }
+    };
+    fillMarquee(feed, marquee);
   </script>
   <span id="bannerMarquee">
   </span>
