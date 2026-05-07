@@ -6,7 +6,7 @@
     async function fillMarquee (feed, marquee) {
       try {
         const response = await fetch(feed),
-          data = await respone.text(),
+          data = await response.text(),
           parser = new DOMparser(),
           xmlDoc = parser.parseFromString(data, "application/xml"),
           content = xmlDoc.querySelector("content:encoded");
